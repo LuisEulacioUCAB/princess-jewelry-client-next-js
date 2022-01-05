@@ -1,0 +1,18 @@
+mutation createSubscription($data: CreateSubscriptionInput!){
+    createSubscription(input:$data){
+        email
+    }
+}
+
+query subscriptions($first:Int, $page:Int) {
+    subscriptions(first:$first, page:$page) {
+        data{
+            id
+            email
+
+        }
+        paginatorInfo{
+            total
+        }
+    }
+}

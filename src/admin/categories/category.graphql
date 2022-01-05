@@ -1,0 +1,36 @@
+query categories($first:Int, $page:Int, $show_in_home:Boolean) {
+    categories(first:$first, page:$page,show_in_home:$show_in_home) {
+        data{
+            id
+            name
+            slug
+            show_in_home
+        }
+        paginatorInfo{
+            total
+        }
+    }
+}
+
+mutation createCategory($data: CreateCategoryInput!) {
+    createCategory(input: $data) {
+        id
+        name
+    }
+}
+
+mutation updateCategory($data: UpdateCategoryInput!) {
+    updateCategory(input: $data) {
+        id
+        name
+        show_in_home
+    }
+}
+
+query category($id: ID, $slug:String, $show_in_home:Boolean) {
+    category(id:$id, slug: $slug, show_in_home:$show_in_home){
+        id
+        name
+        slug
+    }
+}

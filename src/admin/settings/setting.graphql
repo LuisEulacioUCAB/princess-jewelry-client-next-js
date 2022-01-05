@@ -1,0 +1,26 @@
+query settings($first:Int, $page:Int) {
+    settings(first:$first, page:$page) {
+        data{
+            id
+            shipping_cost
+            IVA
+        }
+    }
+
+}
+
+mutation createSetting($data: CreateSettingInput!) {
+    createSetting(input: $data) {
+        id
+        shipping_cost
+        IVA
+    }
+}
+
+mutation updateSetting($data: UpdateSettingInput!) {
+    updateSetting(input: $data) {
+        id
+        shipping_cost
+        IVA
+    }
+}

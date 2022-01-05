@@ -1,0 +1,56 @@
+mutation createProductVisit($data: CreateProductVisitInput!){
+    createProductVisit(input:$data){
+        country_code
+        country_name
+        city
+        latitude
+        longitude
+        IPv4
+        state
+        product{
+            id
+        }
+    }
+}
+
+query productVisits($first:Int, $page:Int) {
+    productVisits(first:$first, page:$page) {
+        data{
+            country_code
+            country_name
+            city
+            latitude
+            longitude
+            IPv4
+            state
+            product{
+                id
+            }
+        }
+        paginatorInfo{
+            total
+        }
+    }
+}
+
+query productVisitByIPv4($IPv4: String) {
+    productVisitByIPv4(IPv4:$IPv4){
+        id
+        country_code
+        country_name
+        city
+        latitude
+        longitude
+        IPv4
+        state
+        product{
+            id
+        }
+    }
+}
+
+query productVisitByDate($period:String, $productId: String) {
+    productVisitByDate(period: $period, product_id:$productId ){
+        data
+    }
+}

@@ -1,0 +1,197 @@
+query products($first:Int, $page:Int, $category_id: Int, $name: String) {
+    products(first:$first, page:$page, category_id:$category_id, name: $name) {
+        data{
+            id
+            name
+            description
+            price
+            stock
+            currency
+            slug
+            category{
+                id
+                name
+                slug
+            }
+            product_files{
+                id
+                file_name
+                file_url
+                principal
+                file
+                slug
+                original_name
+                product{
+                    id
+                    name
+                }
+            }
+
+        }
+        paginatorInfo{
+            total
+        }
+    }
+}
+
+mutation createProduct($data: CreateProductInput!) {
+    createProduct(input: $data) {
+        id
+        name
+        description
+        price
+        stock
+        currency
+        slug
+        category{
+            id
+            name
+            slug
+        }
+    }
+}
+
+mutation updateProduct($data: UpdateProductInput!) {
+    updateProduct(input: $data) {
+        id
+        name
+        description
+        price
+        stock
+        currency
+        slug
+        category{
+            id
+            name
+            slug
+        }
+    }
+}
+
+query product($id: ID, $slug:String){
+    product(id:$id, slug: $slug){
+        id
+        name
+        description
+        price
+        stock
+        currency
+        slug
+        category{
+            id
+            name
+            slug
+        }
+        product_files{
+            id
+            file_name
+            file_url
+            principal
+            file
+            original_name
+            slug
+            product{
+                id
+                name
+            }
+        }
+    }
+}
+
+query productFiles($first:Int, $page:Int, $product_id: Int) {
+    productFiles(first:$first, page:$page, product_id:$product_id) {
+        data{
+            id
+            file_name
+            file_url
+            principal
+            file
+            original_name
+            slug
+            product{
+                id
+                name
+            }
+        }
+        paginatorInfo{
+            total
+        }
+    }
+}
+
+mutation createProductFile($data: CreateProductFileInput!) {
+    createProductFile(input: $data) {
+        id
+        file_name
+        file_url
+        principal
+        file
+        original_name
+        slug
+        product{
+            id
+            name
+        }
+    }
+}
+
+mutation updateProductFile($data: UpdateProductFileInput!) {
+    updateProductFile(input: $data) {
+        id
+        file_name
+        file_url
+        principal
+        file
+        original_name
+        slug
+        product{
+            id
+            name
+        }
+    }
+}
+
+mutation deleteProductFile($id: ID!) {
+    deleteProductFile(id: $id) {
+        id
+    }
+}
+
+
+query productsOrderByCreated($first:Int, $page:Int, $orderBy: [QueryProductsOrderByOrderByClause!]) {
+    products(first:$first, page:$page, orderBy: $orderBy) {
+        data{
+            id
+            name
+            description
+            price
+            stock
+            currency
+            slug
+            created_at
+            category{
+                id
+                name
+                slug
+            }
+            product_files{
+                id
+                file_name
+                file_url
+                principal
+                file
+                slug
+                original_name
+                product{
+                    id
+                    name
+                }
+            }
+
+        }
+        paginatorInfo{
+            total
+        }
+    }
+}
+

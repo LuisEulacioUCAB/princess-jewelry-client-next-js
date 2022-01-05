@@ -1,0 +1,38 @@
+query users($first: Int, $page: Int,$orderBy: [QueryUsersOrderByOrderByClause!]) {
+    users(first: $first, page: $page, orderBy: $orderBy) {
+        paginatorInfo {
+            total
+        }
+        data {
+            id
+            email
+            first_name
+            last_name
+            phone
+            direction
+            role
+            created_at
+            updated_at
+        }
+    }
+}
+
+mutation updateUser($data: UpdateUserInput!) {
+    updateUser(input: $data) {
+        id
+        email
+        first_name
+        last_name
+        phone
+        direction
+        role
+        created_at
+        updated_at
+    }
+}
+
+query userRegisterAnalytics($period:String) {
+    userRegisterAnalytics(period: $period){
+        data
+    }
+}

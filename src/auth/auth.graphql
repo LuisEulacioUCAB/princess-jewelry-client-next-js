@@ -1,0 +1,28 @@
+query userByEmail($email: String) {
+    userByEmail(email: $email) {
+        id
+        email
+        first_name
+        last_name
+        phone
+        direction
+        role
+        created_at
+        updated_at
+    }
+}
+
+mutation createUser($data: CreateUserInput!) {
+    createUser(input: $data) {
+        id
+        email
+        first_name
+        last_name
+        phone
+        direction
+        role
+        created_at
+        updated_at
+    }
+}
+
