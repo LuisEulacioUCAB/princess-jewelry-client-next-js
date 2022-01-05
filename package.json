@@ -52,8 +52,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "next-start": "next start",
-    "start": "node ./server.js",
+    "start": "next start",
     "test": "jest",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "schema-generate": "graphql-codegen --config codegen.yml",
